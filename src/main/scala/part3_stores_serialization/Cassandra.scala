@@ -3,9 +3,9 @@ package part3_stores_serialization
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
-object Postgres extends App {
-  val postgresActorSystem = ActorSystem("postgresActorSystem", ConfigFactory.load().getConfig("postgresDemo"))
-  val persistentActor = postgresActorSystem.actorOf(Props[SimplePersistentActor], "simplePersistentActor")
+object Cassandra extends App {
+  val cassandraActorSystem = ActorSystem("cassandraActorSystem", ConfigFactory.load().getConfig("cassandraDemo"))
+  val persistentActor = cassandraActorSystem.actorOf(Props[SimplePersistentActor], "simplePersistentActor")
 
   for (i <- 1 to 10) {
     persistentActor ! s"I love Akka [$i]"
